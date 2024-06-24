@@ -1,7 +1,7 @@
 console.log("Script is loaded");
 
 // function to shuffle the paired cards
-//makes new pairs after reload
+//makes new pairs after reload, will assign cards values array to it so it can shuffle it
 function shuffleArray(arrayValue) {
   for (let u = arrayValue.length - 1; u > 0; u--) {
     const j = Math.floor(Math.random() * (u + 1));
@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardsElement = Pairingarray(cardsValue);
   shuffleArray(cardsElement);
 
-  // using this methords helps to avoid hardcode each card value on the html code
+  // using this methord helps to avoid hardcode each card value on the html code
+  //for each card creaated the values will be assigned by this function
   cardsElement.forEach((Value) => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -44,22 +45,22 @@ document.addEventListener("DOMContentLoaded", () => {
       flippedCards.push(card); // adding flipped cards to the array
       //making sure only two cards are opened per time
       if (flippedCards.length === 2) {
-        const flippedcard1 = flippedCards[0];
+        const flippedcard1 = flippedCards[0]; // give flipped cards positions on the array
         const flippedcard2 = flippedCards[1];
 
-        //checking for a pair
+        //checking for a pair loop
         if (
           flippedcard1.querySelector(".card-back").textContent ===
           flippedcard2.querySelector(".card-back").textContent
         ) {
-          flippedCards = []; //if pair keep open
+          flippedCards = []; //if pair keep open and store them as flipped
         } else {
-          // if not pair flip with a timer
+          // if not pair flip back with a timer anfter 1s
           setTimeout(() => {
-            flippedcard1.classList.remove("flip");
+            flippedcard1.classList.remove("flip"); 
             flippedcard2.classList.remove("flip");
             flippedCards = []; // this will clear the array of flipped cards
-          }, 1000);
+          }, 1000);// amout of time to flip the cards back
         }
       }
     });
