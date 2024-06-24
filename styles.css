@@ -14,11 +14,15 @@ body {
     grid-template-rows: repeat(4, 100px);
     gap: 10px;
 }
+.topic h3{
+    text-align: center;
+
+}
 
 .card {
     width: 100px;
     height: 100px;
-    background-color: #007BFF;
+    background-color: #00ff91;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,12 +60,12 @@ body {
 }
 
 .card-front {
-    background-color: #007BFF;
-    color: white;
+    background-color: #00d0ff;
+    color: rgb(255, 255, 255);
 }
 
 .card-back {
-    background-color: #FFF;
+    background-color: #ffffff;
     color: #000;
     transform: rotateY(180deg);
 }
